@@ -32,7 +32,7 @@ function UploadForm() {
     formData.append("language", language);
 
     try {
-      const res = await fetch("http://localhost:8000/transcribe/", {
+      const res = await fetch("/transcribe/", {
         method: "POST",
         body: formData,
       });
