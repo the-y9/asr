@@ -50,3 +50,8 @@ async def transcribe_audio(file: UploadFile = File(...), language: str = Form(..
 
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
+
+
+@app.get("/")
+async def read_root():
+    return {"message": "FastAPI is running!"}
