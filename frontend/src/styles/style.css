@@ -1,0 +1,287 @@
+@import url('root.css');
+
+/* Overall page container */
+.page-container {
+    display: flex;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-background);
+  }
+  
+  /* Input section (left side) */
+  .input-section {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-background);
+    border-right: 1px solid var(--border-color);
+    height: 100vh;
+    overflow: auto;
+  }
+  
+  /* Output section (right side) */
+  .output-section {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    overflow: auto;
+    height: 100vh;
+  }
+  
+  
+  /* Styles for the form container (within the input section) */
+  .upload-form-container {
+    width: 80%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    background-color: var(--primary-background);
+    border: 1px solid var(--border-color);
+
+  }
+  
+  .upload-form-container h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--primary-text);
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  /* Input container styles */
+  .input-container {
+    margin-bottom: 25px;
+  }
+  
+  .input-label {
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--secondary-text);
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  /* Custom file input styles */
+  .file-input-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid #ddd; /* Kept as direct hex for potential subtle difference */
+    background-color: var(--input-background);
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 14px 18px;
+    color: var(--input-text);
+    font-size: 14px;
+  }
+  
+  .file-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .file-input-placeholder {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .file-input-wrapper:focus-within {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 6px rgba(26, 115, 232, 0.2);
+  }
+  
+  /* Language select styles */
+  .language-select {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #ddd; /* Kept as direct hex for potential subtle difference */
+    background-color: var(--input-background);
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="#555" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: 50%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    color: var(--input-text); /* Applied color to the select text */
+  }
+  
+  .language-select:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 6px rgba(26, 115, 232, 0.2);
+  }
+  
+  /* Button styling */
+  .button-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: flex-start; /* Align upload button to the left */
+  }
+  
+  .upload-button {
+    padding: 12px 20px;
+    color: white; /* Kept as direct color for contrast */
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    background-color: var(--accent-color);
+  }
+  
+  .upload-button:hover {
+    background-color: var(--hover-accent);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  }
+  
+  .upload-button:active {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
+    transform: translateY(1px);
+  }
+  
+  .upload-button:disabled {
+    background-color: var(--disabled-button-background);
+    color: var(--disabled-button-text);
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  
+  /* Response container styles */
+  .response-container {
+    width: 80%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    background-color: var(--secondary-background);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .response-container h2,
+  .response-container h3 {
+    color: var(--primary-text);
+    font-weight: 500;
+    /* margin-top: 300%; */
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .response-text {
+    background-color: var(--response-background);
+    padding: 20px;
+    border-radius: 10px;
+    font-family: 'Roboto Mono', monospace;
+    white-space: pre-wrap;
+    font-size: 14px;
+    color: var(--response-text-color);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--response-border);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    overflow: auto;
+  }
+  
+  .response-text p {
+    margin: 10px 0;
+  }
+  
+  /* Download button container in the response section */
+  .download-button-container {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+  }
+  
+  .download-button {
+    padding: 12px 20px;
+    color: white; /* Kept as direct color for contrast */
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    background-color: var(--download-button);
+  }
+  
+  .download-button:hover {
+    background-color: var(--hover-download);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  }
+  
+  .download-button:active {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
+    transform: translateY(1px);
+  }
+  
+  /* Empty response state */
+  .empty-response {
+    padding: 20px;
+    background-color: var(--response-background);
+    border-radius: 10px;
+    color: var(--secondary-text);
+    text-align: center;
+  }
+  
+  .wait-container {
+    text-align: center;
+    margin-top: 2rem;
+    font-family: 'Roboto', sans-serif; /* Use the same font as the main form */
+  }
+  
+  .wait-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--input-text);
+    font-weight: 400; /* Lighter font weight for a modern feel */
+  }
+  
+  .wait-card {
+    display: inline-block;
+    padding: 1.2rem 2.5rem; /* Slightly increased padding */
+    border-radius: 12px; /* More rounded corners */
+    background-color: var(--response-background);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer shadow */
+    border: 1px solid var(--response-border);
+  }
+  
+  .wait-title {
+    font-size: 1rem;
+    font-weight: 500; /* Slightly bolder title */
+    color: var(--secondary-text);
+    margin-bottom: 0.7rem;
+  }
+  
+  .wait-language {
+    font-size: 1.2rem;
+    margin: 0.3rem 0;
+    color: var(--primary-text);
+    font-weight: 500;
+  }
+  
+  .wait-time {
+    font-size: 0.9rem;
+    color: var(--input-text);
+  }

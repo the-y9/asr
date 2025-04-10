@@ -1,0 +1,18 @@
+:root {
+    --primary-background: #f4f6f8;
+    --secondary-background: #ffffff;
+    --primary-text: #333;
+    --secondary-text: #777;
+    --accent-color: #1a73e8;
+    --hover-accent: #0d47a1;
+    --download-button: #4285f4;
+    --hover-download: #3367d6;
+    --border-color: #e0e0e0;
+    --input-background: #f8f8f8;
+    --input-text: #555;
+    --response-background: #f8f9fa;
+    --response-text-color: #202124;
+    --response-border: #eee;
+    --disabled-button-background: #e0e0e0;
+    --disabled-button-text: #9e9e9e;
+  }
