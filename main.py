@@ -29,6 +29,9 @@ async def serve_react_app():
     with open(os.path.join("frontend/build", "index.html")) as f:
         return HTMLResponse(content=f.read())
 
+@app.get("/error")
+async def serve_error_page():
+    return {"error": "An error occurred"}
 
 def sanitize_filename(filename: str) -> str:
     # Remove any character that's not alphanumeric, a dash, underscore, or dot
